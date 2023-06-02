@@ -13,8 +13,8 @@ namespace Advanced_CSharp
         public event Action<string> Finish;
         public event Action<string> FileFound;
         public event Action<string> DirectoryFound;
-        public event Func<string, bool> FilteredFileFound;
-        public event Func<string, bool> FilteredDirectoryFound;
+        public event Action<string> FilteredFileFound;
+        public event Action<string> FilteredDirectoryFound;
 
         public FileSystemVisitor(string rootFolder)
             : this(rootFolder, null)
@@ -29,6 +29,12 @@ namespace Advanced_CSharp
 
         public IEnumerable<string> Traverse()
         {
+            if (Directory.Exists(rootFolder) == false)
+            {
+                Console.WriteLine("The path does not refer to a directory.");
+                yield break;
+            }
+
             OnStart(rootFolder);
 
             foreach (var item in TraverseDirectory(rootFolder))
@@ -41,34 +47,29 @@ namespace Advanced_CSharp
 
         private IEnumerable<string> TraverseDirectory(string folderPath)
         {
-            if (DirectoryFound != null)
-            {
-                OnDirectoryFound(folderPath);
-            }
-
             foreach (var file in Directory.GetFiles(folderPath))
             {
-                if (FileFound != null)
+                if (filter == null || filter(file))
+                {
+                    OnFilteredFileFound(file);
+                }
+                else if (FileFound != null)
                 {
                     OnFileFound(file);
                 }
 
-                if (filter == null || (FilteredFileFound != null && FilteredFileFound(file)))
-                {
-                    yield return file;
-                }
+                yield return file;
             }
 
             foreach (var directory in Directory.GetDirectories(folderPath))
             {
-                if (DirectoryFound != null)
+                if (filter == null || filter(directory))
+                {
+                    OnFilteredDirectoryFound(directory);
+                }
+                else if (DirectoryFound != null)
                 {
                     OnDirectoryFound(directory);
-                }
-
-                if (filter == null || (FilteredDirectoryFound != null && FilteredDirectoryFound(directory)))
-                {
-                    yield return directory;
                 }
 
                 foreach (var file in TraverseDirectory(directory))
@@ -77,6 +78,7 @@ namespace Advanced_CSharp
                 }
             }
         }
+
 
         private void OnStart(string path)
         {
@@ -97,14 +99,24 @@ namespace Advanced_CSharp
         {
             DirectoryFound?.Invoke(directoryPath);
         }
+
+        private void OnFilteredFileFound(string filePath)
+        {
+            FilteredFileFound?.Invoke(filePath);
+        }
+
+        private void OnFilteredDirectoryFound(string directoryPath)
+        {
+            FilteredDirectoryFound?.Invoke(directoryPath);
+        }
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            string rootFolder = @"C:\Users\Anton\Downloads";
-            var visitor = new FileSystemVisitor(rootFolder, path => path.Contains(".txt"));
+            string rootFolder = @$"C:\Users\{Environment.UserName}\Downloads\Test";
+            var visitor = new FileSystemVisitor(rootFolder, path => path.Contains("txt"));
 
             visitor.Start += path => Console.WriteLine($"Start: {path}");
             visitor.Finish += path => Console.WriteLine($"Finish: {path}");
@@ -112,19 +124,26 @@ namespace Advanced_CSharp
             visitor.DirectoryFound += path => Console.WriteLine($"Directory Found: {path}");
             visitor.FilteredFileFound += path =>
             {
-                Console.WriteLine($"Filtered File Found: {path}");
-                return true;
+                WriteColorText("Filtered File Found: ", ConsoleColor.Green);
+                Console.WriteLine(path);
             };
             visitor.FilteredDirectoryFound += path =>
             {
-                Console.WriteLine($"Filtered Directory Found: {path}");
-                return true;
+                WriteColorText("Filtered Directory Found: ", ConsoleColor.Green);
+                Console.WriteLine(path);
             };
 
             foreach (var item in visitor.Traverse())
             {
                 Console.WriteLine(item);
             }
+        }
+
+        static void WriteColorText(string text, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.Write(text);
+            Console.ResetColor();
         }
     }
 }
