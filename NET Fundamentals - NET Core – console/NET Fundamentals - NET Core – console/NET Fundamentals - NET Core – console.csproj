@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>NET_Fundamentals___NET_Core___console</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="NET Standard Library">
+      <HintPath>..\..\NET Standard Library\NET Standard Library\bin\Debug\netstandard2.0\NET Standard Library.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
