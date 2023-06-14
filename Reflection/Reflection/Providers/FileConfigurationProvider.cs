@@ -43,7 +43,7 @@ namespace Reflection.Providers
             settings[settingName] = value;
             using (StreamWriter writer = File.CreateText(filePath))
             { 
-                writer.Write(filePath, JsonConvert.SerializeObject(settings));
+                writer.Write(JsonConvert.SerializeObject(settings));
             }
         }
     }
