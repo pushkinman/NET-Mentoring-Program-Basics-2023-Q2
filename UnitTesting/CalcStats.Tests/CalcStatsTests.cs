@@ -107,7 +107,7 @@ namespace CalcStats.Tests
             double result = calcStats.AverageValue(numbers);
 
             // Assert
-            Assert.AreEqual(18.166666, result, 0.000001);
+            Assert.AreEqual(21.833333, result, 0.000001);
         }
 
         [Test]
