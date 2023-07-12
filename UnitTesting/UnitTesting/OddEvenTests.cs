@@ -23,7 +23,7 @@ namespace UnitTesting
     {
         [TestCase(1, "Odd")]
         [TestCase(2, "Even")]
-        [TestCase(3, "Odd")]
+        [TestCase(3, "Prime")]
         [TestCase(4, "Even")]
         [TestCase(5, "Prime")]
         [TestCase(6, "Even")]
