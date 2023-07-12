@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcStats.Tests", "CalcStat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcStats", "CalcStats\CalcStats.csproj", "{F27BC24A-1579-43C2-B3EA-D4FA13D180C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryNumbers.Tests", "BinaryNumbers.Tests\BinaryNumbers.Tests.csproj", "{28639728-AA07-4998-8FB7-6902E68A8955}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryNumbers", "BinaryNumbers\BinaryNumbers.csproj", "{D93CD553-3030-4750-B2AE-FD034214284A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{F27BC24A-1579-43C2-B3EA-D4FA13D180C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F27BC24A-1579-43C2-B3EA-D4FA13D180C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F27BC24A-1579-43C2-B3EA-D4FA13D180C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28639728-AA07-4998-8FB7-6902E68A8955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28639728-AA07-4998-8FB7-6902E68A8955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28639728-AA07-4998-8FB7-6902E68A8955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28639728-AA07-4998-8FB7-6902E68A8955}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D93CD553-3030-4750-B2AE-FD034214284A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D93CD553-3030-4750-B2AE-FD034214284A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D93CD553-3030-4750-B2AE-FD034214284A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D93CD553-3030-4750-B2AE-FD034214284A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
