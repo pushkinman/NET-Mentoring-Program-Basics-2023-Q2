@@ -1,0 +1,12 @@
+{
+  "Type": "LocalizedBook",
+  "Title": "Sample Localized Book 1",
+  "Authors": "David Johnson",
+  "DatePublished": "2021-05-10",
+  "ISBN": "978-9876543210",
+  "NumberOfPages": 250,
+  "Publisher": "ABC Publications",
+  "OriginalPublisher": "XYZ Publications",
+  "CountryOfLocalization": "France",
+  "LocalPublisher": "French Publications"
+}

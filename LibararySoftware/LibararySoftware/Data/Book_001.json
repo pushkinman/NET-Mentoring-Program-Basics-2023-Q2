@@ -1,0 +1,9 @@
+{
+  "Type": "Book",
+  "Title": "Sample Book 1",
+  "Authors": "Jane Smith",
+  "DatePublished": "2022-12-15",
+  "ISBN": "978-1234567890",
+  "NumberOfPages": 300,
+  "Publisher": "XYZ Publications"
+}
