@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using Serilog;
+using System;
 using System.Collections.Generic;
 
 namespace BrainstormSessions.Core.Model
@@ -11,9 +13,17 @@ namespace BrainstormSessions.Core.Model
 
         public List<Idea> Ideas { get; } = new List<Idea>();
 
+        private readonly Serilog.ILogger _logger;
+
+        public BrainstormSession()
+        {
+            _logger = Log.ForContext<BrainstormSession>();
+        }
+
         public void AddIdea(Idea idea)
         {
             Ideas.Add(idea);
+            _logger.Debug($"Idea {idea} was added");
         }
     }
 

@@ -1,19 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BrainstormSessions.Api;
 using BrainstormSessions.Core.Interfaces;
 using BrainstormSessions.Core.Model;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace BrainstormSessions.Infrastructure
 {
     public class EFStormSessionRepository : IBrainstormSessionRepository
     {
         private readonly AppDbContext _dbContext;
+        private readonly ILogger _logger;
 
         public EFStormSessionRepository(AppDbContext dbContext)
         {
             _dbContext = dbContext;
+            _logger = Log.ForContext<IdeasController>();
         }
 
         public Task<BrainstormSession> GetByIdAsync(int id)
@@ -34,6 +39,7 @@ namespace BrainstormSessions.Infrastructure
         public Task AddAsync(BrainstormSession session)
         {
             _dbContext.BrainstormSessions.Add(session);
+            _logger.Debug($"Session {session.Id} {session.Name} was added");
             return _dbContext.SaveChangesAsync();
         }
 
