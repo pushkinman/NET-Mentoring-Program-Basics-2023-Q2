@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibararySoftware.Interfaces
+namespace LibrarySoftware.Interfaces
 {
     internal interface IDocumentRepository
     {

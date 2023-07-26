@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibararySoftware
+namespace LibrarySoftware
 {
     public static class DocumentFactory
     {

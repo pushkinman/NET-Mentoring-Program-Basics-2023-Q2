@@ -1,12 +1,12 @@
-﻿using LibararySoftware.Interfaces;
+﻿using LibrarySoftware.Interfaces;
 
-namespace LibararySoftware
+namespace LibrarySoftware
 {
     class Program
     {
         static void Main()
         {
-            string documentsFolderPath = "C:\\Users\\Anton\\Documents\\NET\\NET-Mentoring-Program-Basics-2023-Q2\\LibararySoftware\\LibararySoftware\\Data";
+            string documentsFolderPath = "C:\\Users\\Anton\\Documents\\NET\\NET-Mentoring-Program-Basics-2023-Q2\\OOP Fundamentals\\LibararySoftware\\Data\\";
 
             IDocumentRepository documentRepository = new FileDocumentRepository(documentsFolderPath);
 

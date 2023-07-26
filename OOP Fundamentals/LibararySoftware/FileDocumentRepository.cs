@@ -1,7 +1,7 @@
-﻿using LibararySoftware.Interfaces;
+﻿using LibrarySoftware.Interfaces;
 using Newtonsoft.Json.Linq;
 
-namespace LibararySoftware
+namespace LibrarySoftware
 {
     public class FileDocumentRepository : IDocumentRepository
     {

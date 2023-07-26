@@ -1,4 +1,4 @@
-﻿namespace LibararySoftware
+﻿namespace LibrarySoftware
 {
     public class Magazine : Document
     {

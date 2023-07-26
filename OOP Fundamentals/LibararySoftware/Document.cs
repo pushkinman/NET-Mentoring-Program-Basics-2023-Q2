@@ -1,4 +1,4 @@
-﻿namespace LibararySoftware
+﻿namespace LibrarySoftware
 {
     public abstract class Document
     {
