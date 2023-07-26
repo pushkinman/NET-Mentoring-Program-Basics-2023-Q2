@@ -24,6 +24,7 @@ namespace LibararySoftware
 
             if (!File.Exists(filePath))
                 return null;
+
             string jsonContent = File.ReadAllText(filePath);
             JObject documentData = JObject.Parse(jsonContent);
 
@@ -36,6 +37,8 @@ namespace LibararySoftware
                 return documentData.ToObject<Book>();
             else if (documentType == "LocalizedBook")
                 return documentData.ToObject<LocalizedBook>();
+            else if (documentType == "Magazine")
+                return documentData.ToObject<Magazine>();
 
             return null;
         }

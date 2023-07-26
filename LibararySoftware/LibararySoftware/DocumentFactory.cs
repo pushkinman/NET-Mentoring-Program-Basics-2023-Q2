@@ -18,7 +18,9 @@ namespace LibararySoftware
                     return new Book();
                 case "LocalizedBook":
                     return new LocalizedBook();
-                // Add cases for new document types here
+                case "Magazine":
+                    return new Magazine();
+                // Add cases for other document types here
                 default:
                     throw new NotSupportedException("Unsupported document type");
             }
