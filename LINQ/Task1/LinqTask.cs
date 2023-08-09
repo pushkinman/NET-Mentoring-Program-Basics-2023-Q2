@@ -48,9 +48,10 @@ namespace Task1
         )
         {
             var result = customers
-                .Where(c => c.Orders.Any())
-                .Select(c => (c, dateOfEntry: c.Orders.Min(o => o.OrderDate)))
-                .ToList();
+        .Where(c => c.Orders.Any())
+        .Select(c => (customer: c, dateOfEntry: c.Orders.Min(o => o.OrderDate)))
+        .Where(entry => entry.customer.Orders.Any()) // Exclude customers without orders
+        .ToList();
 
             return result;
         }

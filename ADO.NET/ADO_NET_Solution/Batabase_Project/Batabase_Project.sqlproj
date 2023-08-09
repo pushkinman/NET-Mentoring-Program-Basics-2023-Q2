@@ -3,16 +3,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Database</Name>
+    <Name>Batabase_Project</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{61d12a00-1cde-4393-ae0b-6b6c9daa26d2}</ProjectGuid>
+    <ProjectGuid>{03b79950-5317-4167-a7c8-6e4f08521e55}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>Database</RootNamespace>
-    <AssemblyName>Database</AssemblyName>
+    <RootNamespace>Batabase_Project</RootNamespace>
+    <AssemblyName>Batabase_Project</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -56,23 +56,16 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="dbo" />
-    <Folder Include="dbo\Tables" />
-    <Folder Include="dbo\Views" />
-    <Folder Include="dbo\Stored Procedures" />
-    <Folder Include="dbo\Triggers" />
+    <Folder Include="Tables" />
+    <Folder Include="Procedures" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Person.sql" />
-    <Build Include="dbo\Tables\Address.sql" />
-    <Build Include="dbo\Tables\Employee.sql" />
-    <Build Include="dbo\Tables\Company.sql" />
-    <Build Include="dbo\Views\EmployeeInfo.sql" />
-    <Build Include="dbo\Stored Procedures\spInsertEmployee.sql" />
-    <Build Include="dbo\Triggers\tgrCreateCompanyOnEmployeeInsert.sql" />
-    <Build Include="dbo\Stored Procedures\spInsertEmployee2.sql" />
+    <Build Include="Tables\Product.sql" />
+    <Build Include="Tables\Order.sql" />
+    <Build Include="Procedures\spFetchOrders_1.sql" />
+    <Build Include="Procedures\spBulkDeleteOrders.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="LocalPractiseDB.publish.xml" />
+    <None Include="Batabase_Project.publish.xml" />
   </ItemGroup>
 </Project>
