@@ -4,7 +4,15 @@ using System.Data.SqlClient;
 
 namespace ADO_NET_Solution
 {
-    public class ProductOperations
+    public abstract class OperationsBase
+    {
+        public abstract void CreateProduct(Product product);
+        public abstract Product ReadProduct(int productId);
+        public abstract void UpdateProduct(Product product);
+        public abstract void DeleteProduct(int productId);
+    }
+
+    public class ProductOperations : OperationsBase
     {
         private IDatabaseConnectionProvider dbConnectionProvider;
 
@@ -13,7 +21,7 @@ namespace ADO_NET_Solution
             dbConnectionProvider = connectionProvider;
         }
 
-        public void CreateProduct(Product product)
+        public override void CreateProduct(Product product)
         {
             using (var connection = dbConnectionProvider.GetConnection())
             {
@@ -37,7 +45,7 @@ namespace ADO_NET_Solution
         }
 
 
-        public Product ReadProduct(int productId)
+        public override Product ReadProduct(int productId)
         {
             using (var connection = dbConnectionProvider.GetConnection())
             {
@@ -72,7 +80,7 @@ namespace ADO_NET_Solution
             return null;
         }
 
-        public void UpdateProduct(Product product)
+        public override void UpdateProduct(Product product)
         {
             using (var connection = dbConnectionProvider.GetConnection())
             {
@@ -97,7 +105,7 @@ namespace ADO_NET_Solution
             }
         }
 
-        public void DeleteProduct(int productId)
+        public override void DeleteProduct(int productId)
         {
             using (var connection = dbConnectionProvider.GetConnection())
             {

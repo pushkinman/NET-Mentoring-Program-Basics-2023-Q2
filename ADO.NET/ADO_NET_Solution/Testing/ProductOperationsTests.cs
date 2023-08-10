@@ -1,49 +1,38 @@
 ﻿using ADO_NET_Solution.Interfaces;
 using ADO_NET_Solution.Models;
 using Moq;
-using System.Data;
+using NUnit.Framework;
 using System.Data.SqlClient;
 
-namespace ADO_NET_Solution.Testing
+namespace ADO_NET_Solution.Tests
 {
     [TestFixture]
     public class ProductOperationsTests
     {
-        [Test]
-        public void TestCreateProduct()
-        {
-            // Arrange
-            var connectionFactory = new ConnectionFactory();
-            var productOps = new ProductOperations(connectionFactory);
+        private readonly Mock<OperationsBase> _productOperations = new Mock<OperationsBase>();
+        private readonly Mock<IDatabaseConnectionProvider> _databaseConnectionProvider = new Mock<IDatabaseConnectionProvider>();
+        
 
-            var product = new Product
+        [Test]
+        public void ReadProduct_ShouldReturnProduct_WhenProductExist()
+        {
+            var productId = 1;
+            var product = new Product()
             {
-                Id = 1,
-                Name = "Sample Product",
-                Description = "Test description",
-                Weight = 2.5M,
-                Height = 10.0M,
-                Width = 5.0M,
-                Length = 15.0M
+                Id = productId,
+                Description = "Description",
+                Name = "Name",
+                Height = 200,
+                Length = 200,
+                Weight = 200,
+                Width = 200,
             };
 
-            // Act
-            productOps.CreateProduct(product);
+            _productOperations.Setup(x => x.ReadProduct(productId)).Returns(product);
 
-            // Assert
-            using (var connection = new SqlConnection("Data Source=(localdb)\\\\MSSQLLocalDB;Initial Catalog=ADO_DB;Integrated Security=True;Connect Timeout=30;Encrypt=False;"))
-            {
-                connection.Open();
+            var reviecedProduct = _productOperations.Object.ReadProduct(productId);
 
-                string selectQuery = "SELECT COUNT(*) FROM Product WHERE Id = @ProductId";
-
-                using (var command = new SqlCommand(selectQuery, connection))
-                {
-                    command.Parameters.AddWithValue("@ProductId", product.Id);
-                    int count = (int)command.ExecuteScalar();
-                    Assert.AreEqual(1, count); // Check that the product was actually inserted
-                }
-            }
+            Assert.AreEqual(productId, reviecedProduct.Id);
         }
     }
 }

@@ -12,8 +12,6 @@ namespace ADO_NET_Solution
             DataFetching dataFetching = new DataFetching(dbConnection);
             DataManipulation dataManipulation = new DataManipulation(dbConnection);
 
-            // Now you can call methods from the above classes to implement your application logic
-            // For example:
             List<Product> products = dataFetching.FetchAllProducts();
             foreach (Product product in products)
             {
@@ -39,8 +37,6 @@ namespace ADO_NET_Solution
             });
 
             dataManipulation.BulkDeleteOrdersUsingStoredProc(status: OrderStatus.InProgress);
-
-            // Test other methods similarly
 
             Console.ReadLine();
         }
