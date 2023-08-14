@@ -8,7 +8,8 @@ namespace ORM_Fundamentals
     {
         static void Main(string[] args)
         {
-            var connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ORM;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+            var connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ORM;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+
             var serviceProvider = new ServiceCollection()
                 .AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(connectionString))

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORM_Fundamentals", "ORM_Fun
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{6F4943A6-2293-43BA-9720-B207DCDE60BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORM_Fundamentals_Dapper", "ORM_Fundamentals_Dapper\ORM_Fundamentals_Dapper.csproj", "{69FB463A-D4B3-41C3-A030-B17CCDF73CA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{6F4943A6-2293-43BA-9720-B207DCDE60BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F4943A6-2293-43BA-9720-B207DCDE60BA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F4943A6-2293-43BA-9720-B207DCDE60BA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{69FB463A-D4B3-41C3-A030-B17CCDF73CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69FB463A-D4B3-41C3-A030-B17CCDF73CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69FB463A-D4B3-41C3-A030-B17CCDF73CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69FB463A-D4B3-41C3-A030-B17CCDF73CA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
